@@ -14,20 +14,32 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Oxygen', sans-serif;
   font-weight: 700; }
 
+body {
+  position: relative; }
+
+.affix {
+  top: 0;
+  width: 100%;
+  z-index: 9999 !important; }
+
+.affix ~ .container-fluid {
+  position: relative;
+  top: 50px; }
+
 .navbar-default {
-  background: rgba(64, 64, 64, 0.75);
+  background: rgba(255, 255, 255, 0.9);
   border: none;
-  color: #777;
   text-transform: uppercase;
   display: inline-block;
-  text-align: right;
-  position: fixed; }
+  text-align: center; }
 
 .navbar {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 0px; }
 
 .navbar-nav {
   margin: 0 auto;
+  margin-left: -200px;
   padding: 0;
   list-style: none;
   display: inline-block;
@@ -41,8 +53,87 @@ a:link, a:visited, .navbar-default .navbar-nav > li > a:hover, .navbar-default .
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   background: none; }
 
+#logo {
+  margin-left: 25px;
+  width: 200px;
+  height: 50px;
+  visibility: hidden; }
+
+.landing-page {
+  background: url("..\\img\\HartHat.png") center fixed;
+  background-size: cover;
+  height: 80vh; }
+  .landing-page h4 {
+    margin-top: -60px;
+    margin-left: 90px;
+    color: white; }
+
 .container-fluid {
   padding-right: 0;
   padding-left: 0;
   margin-right: auto;
   margin-left: auto; }
+
+.Words {
+  margin: 0 auto;
+  padding: 90px 0;
+  font-size: 68px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.Words-line {
+  height: 80px;
+  overflow: hidden;
+  position: relative; }
+  .Words-line:nth-child(odd) {
+    -webkit-transform: skew(0deg, -2deg) scaleY(1.33333);
+    -ms-transform: skew(0deg, -2deg) scaleY(1.33333);
+    transform: skew(0deg, -2deg) scaleY(1.33333); }
+  .Words-line:nth-child(even) {
+    -webkit-transform: skew(0deg, -2deg) scaleY(1.33333);
+    -ms-transform: skew(0deg, -2deg) scaleY(1.33333);
+    transform: skew(0deg, -2deg) scaleY(1.33333); }
+  .Words-line:nth-child(1) {
+    left: 29px; }
+  .Words-line:nth-child(2) {
+    left: 58px; }
+  .Words-line:nth-child(3) {
+    left: 87px; }
+  .Words-line:nth-child(4) {
+    left: 116px; }
+
+p {
+  height: 80px;
+  line-height: 75px;
+  padding: 0 0;
+  -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  vertical-align: top;
+  white-space: nowrap;
+  color: white; }
+
+.starrating {
+  direction: rtl;
+  font-size: 18px;
+  unicode-bidi: bidi-override; }
+  .starrating .star {
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block; }
+  .starrating .star:before {
+    content: "\f006";
+    padding-right: 5px;
+    color: #fcffa2; }
+
+.large {
+  font-size: 1.25em; }
+
+.starRating span.star:hover:before, .starRating span.star:hover ~ span.star:before {
+  content: "\f005";
+  color: #fcffa2; }

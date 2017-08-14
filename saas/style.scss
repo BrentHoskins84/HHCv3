@@ -18,23 +18,37 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+body {
+    position: relative;
+}
+.affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+.affix ~ .container-fluid {
+   position: relative;
+   top: 50px;
+}
+
 //navbar start
 .navbar-default {
-    background: rgba(64, 64, 64, 0.75);
+    background: rgba(255,255,255, 0.9);
     border: none;
-    color: #777;
     text-transform: uppercase;
     display: inline-block;
-    text-align: right;
-    position: fixed;
+    text-align: center;
 }
 
     .navbar {
         width: 100%;
+        margin-bottom: 0px;
     }
 
     .navbar-nav {
         margin: 0 auto;
+        margin-left: -200px;
         padding: 0;
         list-style: none;
         display: inline-block;
@@ -51,15 +65,118 @@ h1, h2, h3, h4, h5, h6 {
         background: none;
     }
 
+  #logo{
+    margin-left: 25px;
+    width: 200px;
+    height: 50px;
+    visibility:hidden;
+  }
 //navbar end
 
 
 // Landing Page
+.landing-page{
+  background: url("..\\img\\HartHat.png") center fixed;
+  background-size: cover;
+  height: 80vh;
+
+  h4{
+    margin-top: -60px;
+    margin-left: 90px;
+    color: white;
+  }
+
+}
 .container-fluid {
     padding-right: 0;
-    padding-left: 0; 
+    padding-left: 0;
     margin-right: auto;
     margin-left: auto;
 }
 
+
+$total-lines: 3;
+$left-offset: 29px;
+$clip-height: 80px;
+$line-height: $clip-height - 5px;
+
+.Words {
+  margin: 0 auto;
+  padding: 90px 0;
+  font-size: 68px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  transform: translate3d(0, 0, 0);
+}
+
+.Words-line {
+  height: $clip-height;
+  overflow: hidden;
+  position: relative;
+
+  // Change the perspective of each alternating line
+  &:nth-child(odd) {
+    transform: skew(0deg, -2deg) scaleY(1.33333);
+  }
+  &:nth-child(even) {
+    transform: skew(0deg, -2deg) scaleY(1.33333);
+  }
+
+  // Loop over the total lines and apply a left offset
+  @for $i from 1 through $total-lines+1 {
+    &:nth-child(#{$i}) {
+      left: $left-offset * $i;
+    }
+  }
+}
+
+p {
+  height: $clip-height;
+  line-height: $line-height;
+  padding: 0 0;
+  transition: all .4s ease-in-out;
+  transform: translate3d(0, 0, 0);
+  vertical-align: top;
+  white-space: nowrap;
+  color: white;
+}
 //Landing Page end
+
+
+//about us page
+
+#about{
+
+  // .col-sm-8{
+  //   margin-left: 25px;
+  // }
+}
+
+.starrating{
+  direction: rtl;
+  font-size: 18px;
+  unicode-bidi: bidi-override;
+
+  .star {
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+  }
+
+  .star:before {
+    content: "\f006";
+    padding-right: 5px;
+    color: #fcffa2;
+  }
+}
+
+.large {
+    font-size: 1.25em;
+}
+
+.starRating span.star:hover:before, .starRating span.star:hover ~ span.star:before {
+    content: "\f005";
+    color: #fcffa2;
+}
+//about us page end
